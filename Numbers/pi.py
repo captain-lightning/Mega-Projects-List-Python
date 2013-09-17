@@ -1,7 +1,17 @@
-# Find PI to the Nth Digit
+# Impossible to go beyond platform's floating point C library without implementing my own algorithm,
+# A much less accurate but much more precise derivation is substituted after 48 decimal places
+import decimal
+import math, sys
 
-import math
+precision = int(sys.argv[1])
 
-digits = raw_input('Enter number of digits to round PI to: ')
+if len(sys.argv) > 2 or precision > 48:
 
-print ('{0:.%df}' % min(20, int(digits))).format(math.pi) # nested string formatting
+    x = decimal.Decimal(22.0)
+    y = decimal.Decimal(7.0)
+    decimal.getcontext().prec = precision
+
+    print x / y
+
+else:
+  print ("{0:.%df}" % precision).format(math.pi)

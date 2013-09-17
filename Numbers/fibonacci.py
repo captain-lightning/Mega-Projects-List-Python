@@ -1,15 +1,13 @@
-# -*- coding: cp1252 -*-
-# Fibonacci Sequence – Enter a number and have the
-# program generate the Fibonacci sequence to that number
-# or to the Nth number
+import sys
 
-n = int(raw_input('How many numbers do you need? '))
-series = [1]
+fibonacci = [0, 1]
 
-while len(series) < n:
-    if len(series) == 1:
-        series.append(1)
-    else:
-        series.append(series[-1] + series[-2])
+for i in xrange(0, int(sys.argv[1])):
+  fibonacci.append(sum(fibonacci[-2:]))
 
-print series
+print fibonacci
+
+# If you prefer the line by line approach:
+#
+#for number in fibonacci:
+#  print number
